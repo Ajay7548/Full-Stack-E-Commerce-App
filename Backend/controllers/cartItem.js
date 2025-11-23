@@ -1,61 +1,59 @@
 import userModel from '../models/userModel.js'
-
 const addToCart = async (req, res) => {
     try {
-        const { userId, itemId, size } = req.body
-        const userData = await userModel.findById(userId)
-        let cardData = await userData.cardData
+        const userId = req.userId;
+        const { itemId, size } = req.body;
 
-        if (cardData[itemId]) {
-            if (cardData[itemId][size]) {
-                cardData[itemId][size] += 1
-            } else {
-                cardData[itemId][size] = 1
+        const userData = await userModel.findById(userId);
+        let cardData = userData.cardData;
 
-            }
-        } else {
-            cardData[itemId] = {}
-            cardData[itemId][size] = 1
+        if (!cardData[itemId]) {
+            cardData[itemId] = {};
         }
 
-        await userModel.findByIdAndUpdate(userId, { cardData })
-        res.json({ success: true, message: 'Added to cart' })
+        cardData[itemId][size] = (cardData[itemId][size] || 0) + 1;
 
+        await userModel.findByIdAndUpdate(userId, { cardData });
+
+        res.json({ success: true, message: 'Added to cart' });
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
-
+        res.json({ success: false, message: error.message });
     }
-}
+};
+
 const updateCart = async (req, res) => {
     try {
-        const { userId, itemId, size, quantity } = req.body
-        const userData = await userModel.findById(userId)
-        let cardData = await userData.cardData
+        const userId = req.userId;
+        const { itemId, size, quantity } = req.body;
 
-        cardData[itemId][size] = quantity
-        await userModel.findByIdAndUpdate(userId, { cardData })
-        res.json({ success: true, message: 'Cart Updated' })
+        const userData = await userModel.findById(userId);
+        let cardData = userData.cardData;
 
+        cardData[itemId][size] = quantity;
+
+        await userModel.findByIdAndUpdate(userId, { cardData });
+
+        res.json({ success: true, message: 'Cart Updated' });
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
-
+        res.json({ success: false, message: error.message });
     }
-}
+};
+
 const getUserCart = async (req, res) => {
     try {
-        const {userId} = req.body
-         const userData = await userModel.findById(userId)
-        let cardData = await userData.cardData
+        const userId = req.userId;
+        console.log("BACKEND RECEIVED USERID: ", userId);
 
-        res.json({success:true,message:cardData})
+        const user = await userModel.findById(userId);
+        const cardData = user.cardData || {};
 
+        res.json({ success: true, cardData });
     } catch (error) {
-        console.log(error)
-        res.json({success:false,message:error.message})
-
+        console.log(error);
+        res.json({ success: false, message: error.message });
     }
-}
+};
+
+
 
 export { addToCart, getUserCart, updateCart }

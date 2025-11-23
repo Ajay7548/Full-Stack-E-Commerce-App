@@ -3,6 +3,10 @@ import bcrypt from 'bcrypt'
 import validator from 'validator'
 import jwt from 'jsonwebtoken'
 
+
+console.log("User controller loaded");
+
+
 const createToken = (id)=>{
     return jwt.sign(
         {id},
@@ -68,10 +72,6 @@ const loginUser = async (req, res, next) => {
     }
 
 }
-//Logout
-const logoutUser = async (req, res, next) => {
-
-}
 //Admin Login
 const adminLogin = async (req, res, next) => {
     try {
@@ -90,4 +90,4 @@ const adminLogin = async (req, res, next) => {
     }
 }
 
-export { loginUser, registerUser, logoutUser, adminLogin }
+export { loginUser, registerUser, adminLogin }
