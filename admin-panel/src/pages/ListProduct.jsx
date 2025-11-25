@@ -9,7 +9,7 @@ const List = ({token}) => {
 
   const fetchList = async()=>{
     try {
-        const response = await axios.get(backendUrl + '/api/products/listProduct')
+        const response = await axios.get(`${backendUrl}/api/products/listProduct`)
 
         if(response.data.success){
           setList(response.data.products)
@@ -24,7 +24,7 @@ const List = ({token}) => {
 
   const removeProduct = async(id)=>{
     try {
-      const response = await axios.post(backendUrl + '/api/products/removeProduct',{id},{headers:{token}})
+      const response = await axios.post(`${backendUrl}/api/products/removeProduct`,{id},{headers:{token}})
       if(response.data.success){
         toast.success(response.data.message)
        await  fetchList()

@@ -36,7 +36,7 @@ const AddProduct = ({token}) => {
       image2 &&  formData.append('image2',image2)
       image3 &&  formData.append('image3',image3)
       image4 &&  formData.append('image4',image4)
-      const res = await axios.post(backendUrl + '/api/products/addProduct',formData ,{headers:{token}})
+      const res = await axios.post(`${backendUrl}/api/products/addProduct`,formData ,{headers:{token}})
       console.log(res);
       
       if(res.data.success){

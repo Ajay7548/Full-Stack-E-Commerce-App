@@ -9,7 +9,7 @@ import Login from './components/Login.jsx'
 import { ToastContainer ,toast} from 'react-toastify';
 
 export const currency = '$'
-export const backendUrl = import.meta.env.VITE_BACKEND_URL
+export const backendUrl = "https://full-stack-e-commerce-app-7ieq.onrender.com";
 
 const App = () => {
 

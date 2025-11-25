@@ -13,7 +13,7 @@ const Orders = ({ token }) => {
     }
 
     try {
-      const response = await axios.post(backendUrl + '/api/order/list', {}, { headers: { token } })
+      const response = await axios.post(`${backendUrl}/api/order/list`, {}, { headers: { token } })
       if (response.data.success) {
         setOrders(response.data.orders)
         console.log('Fetched orders:', response.data.orders)
@@ -28,7 +28,7 @@ const Orders = ({ token }) => {
   const statusHandler = async (e, orderId) => {
     const newStatus = e.target.value
     console.log('Status handler called:', { orderId, newStatus })
-    console.log('Backend URL:', backendUrl)
+    // console.log('Backend URL:', backendUrl)
     console.log('Token:', token ? 'exists' : 'missing')
     
     // Prevent multiple simultaneous updates
@@ -40,10 +40,10 @@ const Orders = ({ token }) => {
     setLoading(prev => ({ ...prev, [orderId]: true }))
     
     try {
-      console.log('Sending request to:', backendUrl + '/api/order/status')
+      // console.log('Sending request to:','/api/order/status')
       
-      const response = await axios.post(
-        backendUrl + '/api/order/status',
+      const response = await axios.post(`${backendUrl}
+      /api/order/status`,
         { orderId, status: newStatus },
         { headers: { token } }
       )
