@@ -65,9 +65,8 @@ npm run dev
 
 ## 📱 Live Demo
 
-**Frontend:** [https://ecommerce-demo.vercel.app](https://ecommerce-demo.vercel.app)
+**Trendhive-Store:** [https://ecommerce-demo.vercel.app](https://full-stack-e-commerce-app-7ieq.onrender.com)
 **Admin:** [https://ecommerce-demo.vercel.app/admin](https://ecommerce-demo.vercel.app/admin)
-**API:** [https://ecommerce-api.herokuapp.com](https://ecommerce-api.herokuapp.com)
 
 **Test Stripe Card:** `4242 4242 4242 4242` | Exp: `12/25` | CVC: `123`
 
