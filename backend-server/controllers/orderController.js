@@ -4,7 +4,7 @@ import Stripe from "stripe";
 
 //gloval var
 const currency = "inr";
-const delivery = 10;
+const delivery = 50;
 console.log(
   "Stripe Key:",
   process.env.STRIPE_SECRET_KEY ? "Loaded ✓" : "Missing ✗"
