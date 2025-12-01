@@ -32,7 +32,6 @@ const Contact = () => {
           </div>
         </div>
 
-      
 
       </div>
       <Subscribe/>
