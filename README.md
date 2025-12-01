@@ -65,7 +65,7 @@ npm run dev
 
 ## 📱 Live Demo
 
-**Trendhive-Store:** [LIVE](https://full-stack-e-commerce-app-7ieq.onrender.com)
+**Trendhive-Store:** [LIVE](full-stack-e-commerce-app-jade.vercel.app)
 
 **Admin:** [LIVE](https://trendhive-app-admin.onrender.com/)
 
