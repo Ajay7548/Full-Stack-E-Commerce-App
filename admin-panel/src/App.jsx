@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar'
 import AddProduct from './pages/AddProduct.jsx'
 import ListProduct from './pages/ListProduct.jsx'
 import Orders from './pages/Orders.jsx'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Login from './components/Login.jsx'
 import { ToastContainer ,toast} from 'react-toastify';
 
@@ -30,7 +30,7 @@ const App = () => {
             <Sidebar />
             <div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
               <Routes>
-
+                <Route path='/' element={<Navigate to="/orders" replace />} />
                 <Route path='/add' element={<AddProduct  token={token} />} />
                 <Route path='/list' element={<ListProduct  token={token} />} />
                 <Route path='/orders' element={<Orders  token={token} />} />

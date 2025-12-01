@@ -42,8 +42,7 @@ const Orders = ({ token }) => {
     try {
       // console.log('Sending request to:','/api/order/status')
       
-      const response = await axios.post(`${backendUrl}
-      /api/order/status`,
+      const response = await axios.post(`${backendUrl}/api/order/status`,
         { orderId, status: newStatus },
         { headers: { token } }
       )
