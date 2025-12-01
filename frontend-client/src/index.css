@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&family=Prata&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #d4af37; /* Gold accent */
+}
+
+.dark {
+  --primary: #ffffff;
+  --secondary: #000000;
+}
+
+* {
+  font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo {
+  font-family: "Prata", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Hide Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+a.active hr {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  a.active {
+    /* background-color: black; */
+    /* color: white; */
+  }
+}
